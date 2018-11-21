@@ -54,16 +54,26 @@ class Transport(object):
             raise ValueError("input must be a list!")
 
     def set_supplies(self, supplies):
+        """
+        :param supplies: a list of numbers.
+        """
         self.__assert_nonempty_list(supplies)
         self.__a = supplies
         self.__m = len(self.__a)
 
     def set_demands(self, demands):
+        """
+        :param demands: a list of numbers.
+        """
         self.__assert_nonempty_list(demands)
         self.__b = demands
         self.__n = len(self.__b)
 
     def set_cost_matrix(self, cost_matrix):
+        """
+        :param cost_matrix: an m by n matrix (2d list),
+            where m = size of supplies and n = size of demands.
+        """
         if not self.__m or not self.__n:
             raise ValueError("set supplies and demands first!")
         else:
@@ -116,6 +126,11 @@ class __TransportB(object):
         self.__objective_values = None
 
     def set_cost_matrix(self, cost_matrix):
+        """
+        :param cost_matrix: an n by n square matrix (2d list),
+            where n = size of each quota vector.
+        :return:
+        """
         if not self.__batch_size:
             raise ValueError("set quota vectors first!")
         else:
@@ -128,6 +143,12 @@ class __TransportB(object):
         self.__c = cost_matrix
 
     def set_quota_vectors(self, quota_vectors):
+        """
+        :param quota_vectors: a list of vectors (2d list),
+            where each quota vector contains supplies or demands, i.e. positive value stands for supply,
+            and negative value stands for demand.
+        :return:
+        """
         if not quota_vectors:
             raise ValueError("quota vector cannot be empty!")
         if not isinstance(quota_vectors[0], list):
