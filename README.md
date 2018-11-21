@@ -8,8 +8,8 @@ Use one of the following method:
 
 * pip install
 ```bash
-pip --install bankrupt
-pip --install bankrupt --upgrade
+pip --install transportmodels
+pip --install transportmodels --upgrade
 ```
 * clone repository and install with:
 ```bash
