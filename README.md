@@ -35,6 +35,7 @@ print(t.get_objective_value())
 
 ```python
 from transportmodels import TransModel
+
 # data
 quota_vectors = [
     [5, 7, 3, -7, -3, -5],
@@ -43,17 +44,26 @@ quota_vectors = [
     [-5, 7, 3, -7, -3, 5]
 ]
 
-cost_matrix = [[0, 0, 0, 3, 1, 100], [0, 0, 0, 4, 2, 4], [0, 0, 0, 100, 3, 3],
-               [3, 4, 100, 0, 0, 0], [1, 2, 3, 0, 0, 0], [100, 4, 3, 0, 0, 0]]
+cost_matrix = [
+    [0, 0, 0, 3, 1, 100], 
+    [0, 0, 0, 4, 2, 4], 
+    [0, 0, 0, 100, 3, 3],
+    [3, 4, 100, 0, 0, 0], 
+    [1, 2, 3, 0, 0, 0], 
+    [100, 4, 3, 0, 0, 0]
+]
+
 # solver
 t = TransModel()
 t.set_processors(2)
 t.set_quota_vectors(quota_vectors)
 t.set_cost_matrix(cost_matrix)
 t.solve()
+
 # solutions and objective values
 solutions = t.get_solutions()
 objective_values = t.get_objective_values()
+
 # print info
 for i in range(len(solutions)):
     print("--- problem %d ---" % i)
