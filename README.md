@@ -1,4 +1,4 @@
-# bankrupt
+# transportmodels
 
 
 Installation
@@ -36,11 +36,12 @@ print(t.get_objective_value())
 ```python
 from transportmodels import TransModel
 # data
-quota_vectors = [[5, 7, 3, -7, -3, -5],
-                     [5, -7, 3, 7, -3, -5],
-                     [5, 7, -3, -7, 3, -5],
-                     [-5, 7, 3, -7, -3, 5]
-                     ]
+quota_vectors = [
+    [5, 7, 3, -7, -3, -5],
+    [5, -7, 3, 7, -3, -5],
+    [5, 7, -3, -7, 3, -5],
+    [-5, 7, 3, -7, -3, 5]
+]
 
 cost_matrix = [[0, 0, 0, 3, 1, 100], [0, 0, 0, 4, 2, 4], [0, 0, 0, 100, 3, 3],
                [3, 4, 100, 0, 0, 0], [1, 2, 3, 0, 0, 0], [100, 4, 3, 0, 0, 0]]
